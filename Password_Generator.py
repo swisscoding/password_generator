@@ -1,31 +1,26 @@
 #!/usr/local/bin/python3
+# Made by @swisscoding on Instagram
 
-import string
-import random
-import os
-import time
+from colored import stylize, fg
+import string, random
 
-os.system("clear" if os.name == "posix" else "cls")
+# decoration
+print(stylize("\n---- | Password generator | ----\n", fg("red")))
 
 # variables
 chars = "".join(string.printable.split())
-string = "Password Generator"
 password = ""
 
-print("="*len(string))
-print(string)
-print("="*len(string))
+# user interaction
+number_of_pws = int(input("Number of passwords: "))
+len_of_pws = int(input("Length of each password: "))
 
-number_of_pws = int(input("\nNumber of Passwords: "))
-len_of_pws = int(input("Length of each Password: "))
-
-print("\nGenerating Passwords...\n")
-time.sleep(2)
+# output
+print("\nGenerating passwords...\n")
 
 for _ in range(number_of_pws):
     for _ in range(len_of_pws):
         password += random.choice(chars)
     print(">>> " + password)
     password = ""
-    time.sleep(0.5)
 print()
